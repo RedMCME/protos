@@ -15,6 +15,17 @@ jobs:
 
       - name: Install Protoc
         uses: arduino/setup-protoc@v1
+      
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.19.1'
+          check-latest: true
+          cache: true
+
+      - name: Install protoc plugins
+        run: |
+          go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
+          go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 
       - name: Build protos for go
         run: |
