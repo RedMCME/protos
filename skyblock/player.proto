@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package skyblock.player;
+option go_package = "github.com/redmcme/go-protos/skyblock/player";
+
+message PlayerRequest {
+  string username = 1;
+}
+
+message PlayerResponse {
+	string username = 1;
+	float money = 2;
+	uint32 coins = 3;
+	string current_group = 4;
+	uint32 kills = 5;
+	uint32 deaths = 6;
+	string created_at = 7;
+	string updated_at = 8;
+}
+
+message GroupsResponse {
+	message Group {
+		string name = 1;
+		string label = 2;
+		string expire_at = 3;
+		string updated_at = 4;
+	}
+
+	repeated Group groups = 1;
+}
+
+service PlayerService {
+	rpc GetPlayer(PlayerRequest) returns (PlayerResponse);
+	rpc GetGroups(PlayerRequest) returns (GroupsResponse);
+}
