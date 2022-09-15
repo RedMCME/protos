@@ -29,10 +29,12 @@ jobs:
       - name: Build protos for go
         run: |
           mkdir go-protos
-          tree -L 2
           protoc --proto_path . \
             --go_out=module=github.com/redmcme/go-protos:./go-protos \
             --go-grpc_out=module=github.com/redmcme/go-protos:./go-protos \
             ./*/**
-          tree -L 2
           
+      - uses: actions/upload-artifact@v3
+        with:
+          name: go-protos 
+          path: go-protos
