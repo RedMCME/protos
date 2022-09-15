@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  protoc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v1
+
+      - name: Build protos for go
+        run: |
+          protoc --proto_path . \
+            --go_out=module=github.com/redmcme/go-protos:../go-protos \
+            --go-grpc_out=module=github.com/redmcme/go-protos:../go-protos \
+            ./*/**
+          ls -la
+          
