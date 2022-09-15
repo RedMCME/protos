@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package teams.season;
 
-import "teams.team";
-option go_package = "github.com/redmcme/go-protos/teams/season";
+import "team.proto";
+option go_package = "teams/season";
 
 message SeasonRequest {
 	optional int32 season = 1;
