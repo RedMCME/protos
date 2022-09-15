@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package teams.team;
-option go_package = "github.com/redmcme/go-protos/teams/team";
+option go_package = "teams/team";
 
 message TeamRequest {
 	oneof find_by {
@@ -10,7 +10,7 @@ message TeamRequest {
 	};
 }
 
-message TeamResponse {
+message Team {
 	string name = 1;
 	string description = 2;
 	string founder_user = 3;
