@@ -28,9 +28,11 @@ jobs:
 
       - name: Build protos for go
         run: |
+          mkdir go-protos
+          ls -la
           protoc --proto_path . \
-            --go_out=module=github.com/redmcme/go-protos:../go-protos \
-            --go-grpc_out=module=github.com/redmcme/go-protos:../go-protos \
+            --go_out=module=github.com/redmcme/go-protos:./go-protos \
+            --go-grpc_out=module=github.com/redmcme/go-protos:./go-protos \
             ./*/**
           ls -la
           
