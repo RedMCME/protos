@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package teams.season;
 
-import "teams/team";
+//import "teams/team";
 option go_package = "github.com/redmcme/go-protos/teams/season";
 
 message SeasonRequest {
@@ -19,5 +19,5 @@ message SeasonResponse {
 
 message SeasonRankingResponse {
 	int32 seeason = 1;
-	repeated team.Team teams = 2;
+	//repeated team.Team teams = 2;
 }
