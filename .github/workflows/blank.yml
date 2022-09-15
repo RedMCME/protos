@@ -29,9 +29,9 @@ jobs:
       - name: Build protos for go
         run: |
           mkdir go-protos
-          protoc --proto_path . \
-            --go_out=module=github.com/redmcme/go-protos:./go-protos \
-            --go-grpc_out=module=github.com/redmcme/go-protos:./go-protos \
+          protoc -I teams -I skyblock \
+            --go_out=./go-protos \
+            --go-grpc_out=./go-protos \
             ./*/**
           
       - uses: actions/upload-artifact@v3
