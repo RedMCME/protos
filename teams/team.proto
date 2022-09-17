@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package teams.team;
-option go_package = "teams/team";
+package teams;
+option go_package = "go/teams";
 
 message TeamRequest {
 	oneof find_by {
@@ -15,6 +15,7 @@ message Team {
 	string description = 2;
 	string founder_user = 3;
 	string created_at = 4;
+  repeated TeamMember members = 5;
 }
 
 message TeamMember {
@@ -29,3 +30,6 @@ enum TeamMemberStatue {
 	LEADER = 2;
 }
 
+service TeamService {
+  rpc FindTeam(TeamRequest) returns (Team) {}
+}

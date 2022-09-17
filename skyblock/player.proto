@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package skyblock.player;
-option go_package = "skyblock/player";
+package skyblock;
+option go_package = "go/skyblock";
 
 message PlayerRequest {
   string username = 1;
 }
 
-message PlayerResponse {
+message Player {
 	string username = 1;
 	float money = 2;
 	uint32 coins = 3;
@@ -18,18 +18,14 @@ message PlayerResponse {
 	string updated_at = 8;
 }
 
-message GroupsResponse {
-	message Group {
-		string name = 1;
-		string label = 2;
-		string expire_at = 3;
-		string updated_at = 4;
-	}
-
-	repeated Group groups = 1;
+message PlayerGroup {
+	string name = 1;
+	string label = 2;
+	string expire_at = 3;
+	string updated_at = 4;
 }
 
 service PlayerService {
-	rpc GetPlayer(PlayerRequest) returns (PlayerResponse);
-	rpc GetGroups(PlayerRequest) returns (GroupsResponse);
+	rpc GetPlayer(PlayerRequest) returns (Player) {}
+	rpc GetGroups(PlayerRequest) returns (PlayerGroup) {}
 }

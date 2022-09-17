@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-package teams.season;
+package teams;
 
 import "team.proto";
-option go_package = "teams/season";
+option go_package = "go/teams";
 
 message SeasonRequest {
 	optional int32 season = 1;
 }
 
-message SeasonResponse {
+message Season {
 	int32 season = 1;
 	string name = 2;
 	bool active = 3;
@@ -19,5 +19,10 @@ message SeasonResponse {
 
 message SeasonRankingResponse {
 	int32 seeason = 1;
-	repeated team.Team teams = 2;
+	repeated teams.Team teams = 2;
+}
+
+service SeasonService {
+  rpc GetSeason (SeasonRequest) returns (Season) {}
+  rpc GetSeasonRanking (SeasonRequest) returns (SeasonRankingResponse) {}
 }
