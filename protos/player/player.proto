@@ -3,6 +3,8 @@ syntax = "proto3";
 package player;
 option go_package = "github.com/redmcme/rpc-go/player";
 
+import "google/protobuf/wrappers.proto";
+
 message PlayerRequest {
   string username = 1;
 }
@@ -19,9 +21,9 @@ message Player {
 }
 
 message PlayerGroup {
-	string name = 1;
-	string label = 2;
-	string expire_at = 3;
+	string username = 1;
+	string group_label = 2;
+	google.protobuf.StringValue expire_at = 3;
 	string updated_at = 4;
 }
 
