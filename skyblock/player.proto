@@ -25,7 +25,11 @@ message PlayerGroup {
 	string updated_at = 4;
 }
 
+message PlayerGroups {
+  repeated PlayerGroup groups = 1;
+}
+
 service PlayerService {
 	rpc GetPlayer(PlayerRequest) returns (Player) {}
-	rpc GetGroups(PlayerRequest) returns (PlayerGroup) {}
+	rpc GetGroups(PlayerRequest) returns (PlayerGroups) {}
 }
