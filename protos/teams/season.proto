@@ -3,7 +3,7 @@ syntax = "proto3";
 package teams;
 
 import "team.proto";
-option go_package = "go/teams";
+option go_package = "github.com/redmcme/rpc-go/teams";
 
 message SeasonRequest {
 	optional int32 season = 1;

@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package skyblock;
-option go_package = "go/skyblock";
+option go_package = "github.com/redmcme/rpc-go/skyblock";
 
 message PlayerRequest {
   string username = 1;

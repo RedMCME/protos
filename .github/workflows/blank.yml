@@ -5,7 +5,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-
 jobs:
   protoc:
     runs-on: ubuntu-latest
@@ -28,13 +27,4 @@ jobs:
 
       - name: Build protos for go
         run: |
-          mkdir go-protos
-          protoc -I teams -I skyblock \
-            --go_out=./go-protos \
-            --go-grpc_out=./go-protos \
-            ./*/**
-          
-      - uses: actions/upload-artifact@v3
-        with:
-          name: go-protos 
-          path: go-protos
+          make compile-go
