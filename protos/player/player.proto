@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package skyblock;
+package player;
 option go_package = "github.com/redmcme/rpc-go/player";
 
 message PlayerRequest {
